@@ -8,8 +8,41 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-ibm-plex-sans-thai);
+
+  /* Mobile */
+  --text-display-m: 32px;
+  --leading-display-m: 40px;
+  --text-h1-m: 24px;
+  --leading-h1-m: 32px;
+  --text-body1-m: 16px;
+  --leading-body1-m: 24px;
+  --text-body2-m: 14px;
+  --leading-body2-m: 20px;
+
+  /* Desktop */
+  --text-display-d: 56px;
+  --leading-display-d: 64px;
+  --text-h1-d: 40px;
+  --leading-h1-d: 48px;
+  --text-body1-d: 18px;
+  --leading-body1-d: 28px;
+  --text-body2-d: 16px;
+  --leading-body2-d: 24px;
+}
+
+@utility typo-display {
+  @apply text-display-m leading-display-m font-normal md:text-display-d md:leading-display-d;
+}
+@utility typo-h1 {
+  @apply text-h1-m      leading-h1-m      font-bold  md:text-h1-d      md:leading-h1-d;
+}
+@utility typo-body1 {
+  @apply text-body1-m   leading-body1-m   font-normal md:text-body1-d   md:leading-body1-d;
+}
+@utility typo-body2 {
+  @apply text-body2-m   leading-body2-m   font-normal md:text-body2-d   md:leading-body2-d;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +55,11 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
 }
+html,
+body {
+  @apply bg-white text-black dark:bg-zinc-950 dark:text-zinc-50 antialiased;
+}
+
+@import "tailwindcss";
