@@ -11,15 +11,19 @@
   --font-sans: var(--font-inter);
   --font-mono: var(--font-ibm-plex-sans-thai);
 
+  --font-heading: var(--font-inter), var(--font-ibm-plex-sans-thai),
+    ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial;
+
   /* Mobile */
   --text-display-m: 32px;
   --leading-display-m: 40px;
-  --text-h1-m: 24px;
+  --text-h1-m: 32px;
   --leading-h1-m: 32px;
-  --text-body1-m: 16px;
+  --text-body1-m: 21px;
   --leading-body1-m: 24px;
-  --text-body2-m: 14px;
-  --leading-body2-m: 20px;
+  --text-body2-m: 15px;
+  --leading-body2-m: 24px;
 
   /* Desktop */
   --text-display-d: 56px;
@@ -28,8 +32,13 @@
   --leading-h1-d: 48px;
   --text-body1-d: 18px;
   --leading-body1-d: 28px;
-  --text-body2-d: 16px;
-  --leading-body2-d: 24px;
+  --text-body2-d: 12px;
+  --leading-body2-d: 16px;
+
+  --color-black: #000000;
+  --color-darkgray: #636363;
+  --color-lightgray: #acacac;
+  --color-white: #ffffff;
 }
 
 @utility typo-display {
