@@ -16,8 +16,8 @@
     "Helvetica Neue", Arial;
 
   /* Mobile */
-  --text-display-m: 32px;
-  --leading-display-m: 40px;
+  --text-display-m: 96px;
+  --leading-display-m: 96px;
   --text-h1-m: 32px;
   --leading-h1-m: 32px;
   --text-body1-m: 21px;
@@ -26,8 +26,8 @@
   --leading-body2-m: 24px;
 
   /* Desktop */
-  --text-display-d: 56px;
-  --leading-display-d: 64px;
+  --text-display-d: 164px;
+  --leading-display-d: 164px;
   --text-h1-d: 40px;
   --leading-h1-d: 48px;
   --text-body1-d: 18px;
