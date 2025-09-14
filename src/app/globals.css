@@ -10,30 +10,31 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-inter);
   --font-mono: var(--font-ibm-plex-sans-thai);
+  --font-noto-sans-thai: var(--font-noto-sans-thai);
 
   --font-heading: var(--font-inter), var(--font-ibm-plex-sans-thai),
-    ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial;
+    var(--font-noto-sans-thai), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial;
 
   /* Mobile */
   --text-display-m: 96px;
-  --leading-display-m: 96px;
+  --leading-display-m: 100%;
   --text-h1-m: 32px;
-  --leading-h1-m: 32px;
+  --leading-h1-m: 100%;
   --text-body1-m: 21px;
-  --leading-body1-m: 24px;
+  --leading-body1-m: 150%;
   --text-body2-m: 15px;
-  --leading-body2-m: 24px;
+  --leading-body2-m: 150%;
 
   /* Desktop */
   --text-display-d: 164px;
-  --leading-display-d: 164px;
+  --leading-display-d: 100%;
   --text-h1-d: 40px;
-  --leading-h1-d: 48px;
+  --leading-h1-d: 100%;
   --text-body1-d: 18px;
-  --leading-body1-d: 28px;
+  --leading-body1-d: 150%;
   --text-body2-d: 12px;
-  --leading-body2-d: 16px;
+  --leading-body2-d: 150%;
 
   --color-black: #000000;
   --color-darkgray: #636363;

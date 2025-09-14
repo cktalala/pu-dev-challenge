@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, IBM_Plex_Sans_Thai } from "next/font/google";
+import { Inter, IBM_Plex_Sans_Thai, Noto_Sans_Thai } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -17,6 +17,13 @@ const ibmPlexSansThai = IBM_Plex_Sans_Thai({
   preload: true,
 });
 
+const notoSansThai = Noto_Sans_Thai({
+  variable: "--font-noto-sans-thai",
+  subsets: ["latin"],
+  display: "swap",
+  preload: true,
+});
+
 export const metadata: Metadata = {
   title: "PU Dev Challenge",
   description: "Static site built with Next.js + Tailwind v4",
@@ -30,7 +37,7 @@ export default function RootLayout({
   return (
     <html lang="th">
       <body
-        className={`${inter.variable} ${ibmPlexSansThai.variable} antialiased`}
+        className={`${inter.variable} ${ibmPlexSansThai.variable} ${notoSansThai.variable} antialiased`}
       >
         {children}
       </body>
