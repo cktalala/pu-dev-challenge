@@ -12,8 +12,10 @@
     "framer-motion": "^12.23.12",
     "lucide-react": "^0.544.0",
     "next": "15.5.3",
+    "papaparse": "^5.5.3",
     "react": "19.1.0",
     "react-dom": "19.1.0",
+    "react-papaparse": "^4.4.0",
     "recharts": "^3.2.0"
   },
   "devDependencies": {
