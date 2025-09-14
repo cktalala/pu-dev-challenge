@@ -4,6 +4,7 @@ import React from "react";
 import SectionHero from "./components/SectionHero";
 import SectionCount from "./components/SectionCount";
 import ScrollDown from "@/components/scroll-down";
+import SectionDetail from "./components/SectionDetail";
 
 const HomePage = () => {
   return (
@@ -12,6 +13,9 @@ const HomePage = () => {
 
       <Reveal>
         <SectionCount />
+      </Reveal>
+      <Reveal>
+        <SectionDetail />
       </Reveal>
 
       <ScrollDown />

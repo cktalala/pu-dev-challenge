@@ -22,8 +22,8 @@ export default function CasesBarChart() {
       download: true,
       header: true,
       complete: (result) => {
-        const parsed = (result.data as DataItem[]).map((row) => ({
-          year: row.year,
+        const parsed = (result.data as any[]).map((row) => ({
+          year: String(row.year),
           cases: Number(row.cases),
         }));
         setData(parsed);
@@ -32,17 +32,23 @@ export default function CasesBarChart() {
   }, []);
 
   return (
-    <ResponsiveContainer
-      width="100%"
-      height={400}
-      className="max-w-[500px] mx-auto"
-    >
-      <BarChart data={data}>
-        <XAxis dataKey="year" />
-        <YAxis />
-
-        <Bar dataKey="cases" fill="#000000" radius={[0, 0, 0, 0]} />
-      </BarChart>
-    </ResponsiveContainer>
+    <div className="w-full md:max-w-[500px] min-w-0 mx-auto">
+      <ResponsiveContainer width="100%" height={360}>
+        <BarChart
+          data={data}
+          margin={{ top: 8, right: 8, bottom: 8, left: 8 }}
+          barCategoryGap={8}
+        >
+          <XAxis
+            dataKey="year"
+            interval="preserveStartEnd"
+            tick={{ fontSize: 12 }}
+          />
+          <YAxis />
+          <Tooltip />
+          <Bar dataKey="cases" fill="#000000" radius={[4, 4, 0, 0]} />
+        </BarChart>
+      </ResponsiveContainer>
+    </div>
   );
 }

@@ -4,43 +4,37 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 
-function getSections() {
-  return Array.from(document.querySelectorAll<HTMLElement>("[data-section]"));
-}
+const getSections = () =>
+  Array.from(document.querySelectorAll<HTMLElement>("[data-section]"));
 
 export default function ScrollDown() {
   const [atLast, setAtLast] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const reduce = useReducedMotion();
-  const ioRef = useRef<IntersectionObserver | null>(null);
 
+  // สังเกตทุก section
   useEffect(() => {
     const sections = getSections();
     if (!sections.length) return;
 
-    const last = sections[sections.length - 1];
-    ioRef.current?.disconnect();
-
-    ioRef.current = new IntersectionObserver(
+    const observer = new IntersectionObserver(
       (entries) => {
-        const e = entries[0];
-        setAtLast(e.isIntersecting && e.intersectionRatio >= 0.5);
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = sections.indexOf(entry.target as HTMLElement);
+            setCurrentIndex(index);
+            setAtLast(index === sections.length - 1);
+          }
+        });
       },
-      { threshold: [0, 0.5, 1] }
+      {
+        threshold: 0.6, // section โผล่มากกว่า 60% ถือว่า active
+      }
     );
 
-    ioRef.current.observe(last);
-    return () => ioRef.current?.disconnect();
+    sections.forEach((s) => observer.observe(s));
+    return () => observer.disconnect();
   }, []);
-
-  const getNextScrollTop = () => {
-    const sections = getSections();
-    if (!sections.length) return 0;
-
-    const next = sections.find((s) => s.offsetTop > window.scrollY + 10);
-    if (next) return next.offsetTop;
-
-    return -1;
-  };
 
   const onClick = () => {
     const sections = getSections();
@@ -49,9 +43,11 @@ export default function ScrollDown() {
     if (atLast) {
       window.scrollTo({ top: 0, behavior: "smooth" });
     } else {
-      const next =
-        sections.find((s) => s.offsetTop > window.scrollY + 5) || sections[1];
-      next?.scrollIntoView({ behavior: "smooth" });
+      const nextIdx = Math.min(currentIndex + 1, sections.length - 1);
+      sections[nextIdx]?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
     }
   };
 

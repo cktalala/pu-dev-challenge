@@ -9,7 +9,7 @@ const SectionHero = () => {
     >
       <div className="flex flex-col items-center justify-center max-w-[660px] mx-auto gap-8 md:gap-16 px-6 md:px-0">
         <h1 className="typo-display text-white font-noto-sans-thai">ม.๑๑๒</h1>
-        <p className="typo-body1 text-white font-noto-sans-thai text-center">
+        <p className="typo-body1 text-white font-mono text-center">
           “ผู้ใดหมิ่นประมาท ดูหมิ่น <br className=" block md:hidden" />
           หรือแสดงความอาฆาตมาดร้าย พระมหากษัตริย์{" "}
           <br className=" block md:hidden" /> พระราชินี รัชทายาท{" "}
