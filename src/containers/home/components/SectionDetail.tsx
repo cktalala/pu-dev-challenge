@@ -6,7 +6,7 @@ const SectionDetail = () => {
     <section
       id="detail"
       data-section
-      className="font-sans flex bg-black px-10 sm:px-0 min-h-dvh"
+      className="font-sans flex bg-black px-10 sm:px-0"
     >
       <div className="flex flex-col mt-24 max-w-[720px] mx-auto  gap-16 w-full">
         <h1 className="typo-h1 text-white font-noto-sans-thai text-center md:text-left">

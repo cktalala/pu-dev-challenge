@@ -5,6 +5,7 @@ import SectionHero from "./components/SectionHero";
 import SectionCount from "./components/SectionCount";
 import ScrollDown from "@/components/scroll-down";
 import SectionDetail from "./components/SectionDetail";
+import Footer from "./components/Footer";
 
 const HomePage = () => {
   return (

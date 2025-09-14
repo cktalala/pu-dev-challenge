@@ -4,51 +4,94 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 
-const getSections = () =>
-  Array.from(document.querySelectorAll<HTMLElement>("[data-section]"));
-
 export default function ScrollDown() {
-  const [atLast, setAtLast] = useState(false);
-  const [currentIndex, setCurrentIndex] = useState(0);
   const reduce = useReducedMotion();
 
-  // สังเกตทุก section
-  useEffect(() => {
-    const sections = getSections();
-    if (!sections.length) return;
+  const sectionsRef = useRef<HTMLElement[]>([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [atLast, setAtLast] = useState(false);
+  const isScrollingRef = useRef(false);
+  const scrollTimer = useRef<number | null>(null);
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const index = sections.indexOf(entry.target as HTMLElement);
-            setCurrentIndex(index);
-            setAtLast(index === sections.length - 1);
-          }
-        });
-      },
-      {
-        threshold: 0.6, // section โผล่มากกว่า 60% ถือว่า active
-      }
+  const collect = () => {
+    sectionsRef.current = Array.from(
+      document.querySelectorAll<HTMLElement>("[data-section]")
     );
+    setAtLast(0 === sectionsRef.current.length - 1);
+  };
 
-    sections.forEach((s) => observer.observe(s));
-    return () => observer.disconnect();
+  const computeIndex = () => {
+    const secs = sectionsRef.current;
+    if (!secs.length) return 0;
+    let best = 0;
+    let bestAbs = Infinity;
+    for (let i = 0; i < secs.length; i++) {
+      const top = secs[i].getBoundingClientRect().top; // ระยะถึงขอบบน
+      const abs = Math.abs(top);
+      if (abs < bestAbs) {
+        bestAbs = abs;
+        best = i;
+      }
+    }
+    return best;
+  };
+
+  useEffect(() => {
+    collect();
+
+    const onScroll = () => {
+      if (scrollTimer.current) window.clearTimeout(scrollTimer.current);
+      if (isScrollingRef.current) return;
+
+      scrollTimer.current = window.setTimeout(() => {
+        const idx = computeIndex();
+        setCurrentIndex(idx);
+        setAtLast(idx === sectionsRef.current.length - 1);
+      }, 60);
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+
+    setTimeout(onScroll, 0);
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (scrollTimer.current) window.clearTimeout(scrollTimer.current);
+    };
   }, []);
 
   const onClick = () => {
-    const sections = getSections();
-    if (!sections.length) return;
+    const secs = sectionsRef.current;
+    if (!secs.length || isScrollingRef.current) return;
 
-    if (atLast) {
+    if (currentIndex >= secs.length - 1) {
+      isScrollingRef.current = true;
       window.scrollTo({ top: 0, behavior: "smooth" });
-    } else {
-      const nextIdx = Math.min(currentIndex + 1, sections.length - 1);
-      sections[nextIdx]?.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+      window.setTimeout(() => {
+        isScrollingRef.current = false;
+        setCurrentIndex(0);
+        setAtLast(false);
+      }, 800);
+      return;
     }
+
+    const nextIdx = currentIndex + 1;
+    const el = secs[nextIdx];
+    if (!el) return;
+
+    isScrollingRef.current = true;
+    el.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+      inline: "nearest",
+    });
+    window.setTimeout(() => {
+      isScrollingRef.current = false;
+      setCurrentIndex(nextIdx);
+      setAtLast(nextIdx === secs.length - 1);
+    }, 800);
   };
 
   return (

@@ -45,7 +45,7 @@ export default function CasesBarChart() {
             tick={{ fontSize: 12 }}
           />
           <YAxis />
-          <Tooltip />
+
           <Bar dataKey="cases" fill="#000000" radius={[4, 4, 0, 0]} />
         </BarChart>
       </ResponsiveContainer>

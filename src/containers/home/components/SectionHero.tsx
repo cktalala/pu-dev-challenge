@@ -5,7 +5,7 @@ const SectionHero = () => {
     <section
       id="hero"
       data-section
-      className="font-sans flex items-center justify-items-center min-h-screen  bg-black"
+      className="font-sans flex items-center justify-items-center min-h-screen bg-black"
     >
       <div className="flex flex-col items-center justify-center max-w-[660px] mx-auto gap-8 md:gap-16 px-6 md:px-0">
         <h1 className="typo-display text-white font-noto-sans-thai">ม.๑๑๒</h1>
