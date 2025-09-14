@@ -19,6 +19,16 @@ const SectionCount = () => {
           2548 เป็นต้นมา
         </p>
         <CasesBarChart />
+        <p className="typo-body2  font-noto-sans-thai text-center">
+          ที่มา:{" "}
+          <a
+            href="https://freedom.ilaw.or.th/node/817"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            iLaw
+          </a>
+        </p>
       </div>
     </section>
   );
