@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, IBM_Plex_Sans_Thai, Noto_Sans_Thai } from "next/font/google";
 import "./globals.css";
+import ScrollProgress from "@/components/scroll-progree";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -39,6 +40,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${ibmPlexSansThai.variable} ${notoSansThai.variable} antialiased`}
       >
+        <ScrollProgress />
         {children}
       </body>
     </html>

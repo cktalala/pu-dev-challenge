@@ -86,8 +86,8 @@ function AnimatedBar(props: RectangleProps & { active: boolean }) {
     <motion.rect
       x={x}
       width={Math.max(0, width as number)}
-      rx={2}
-      ry={2}
+      rx={0}
+      ry={0}
       fill={fill.toString()}
       initial={init}
       animate={active ? target : init}
