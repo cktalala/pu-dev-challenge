@@ -36,11 +36,11 @@ export default function ScrollDown() {
     <button
       onClick={onClick}
       aria-label={heroInView ? "Go to stats" : "Back to top"}
-      className="fixed right-0 -translate-x-1/2 bottom-6 z-50 size-[26px] grid place-items-center
+      className="fixed right-6 -translate-x-1/2 z-50 size-[26px] grid place-items-center
       rounded-full border border-darkgray text-darkgray shadow-lg
       hover:border-lightgray hover:text-lightgray
       transition focus:outline-none focus-visible:ring-4 focus-visible:ring-white/30"
-      style={{ bottom: "calc(env(safe-area-inset-bottom,0px) + 14px)" }}
+      style={{ bottom: "calc(env(safe-area-inset-bottom,0px) + 30px)" }}
     >
       <motion.div
         animate={{ rotate: heroInView ? 0 : 180 }}
