@@ -74,7 +74,7 @@ The project uses CSV datasets and image assets sourced from the Google Drive lin
 
 ---
 
-## 🙋 ผู้พัฒนา
+## 🙋 Developer
 
 **Phatchara S.**
 
