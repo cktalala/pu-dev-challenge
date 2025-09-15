@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PU Dev Challenge 🚀
 
-## Getting Started
+This project is the development of a **Static Website** for the PU Dev Challenge  
+built with **Next.js + TailwindCSS + Framer Motion + Recharts**
 
-First, run the development server:
+---
+
+## 🔧 Tech Stack
+
+- [Next.js 15](https://nextjs.org/) (App Router)
+- [React 19](https://react.dev/)
+- [TailwindCSS 4](https://tailwindcss.com/)
+- [Framer Motion](https://www.framer.com/motion/) (Animation)
+- [Recharts](https://recharts.org/) (Data Visualization)
+- [Lucide React](https://lucide.dev/) (Icons)
+- [Papa Parse](https://www.papaparse.com/) (CSV parser)
+
+---
+
+## 🚀 Installation and Running the Project
+
+### 1. Clone Repository
+
+```bash
+git clone https://github.com/cktalala/pu-dev-challenge.git
+cd pu-dev-challenge
+```
+
+### 2. Install Dependencies
+
+if **npm**
+
+```bash
+npm install
+```
+
+or if **yarn**
+
+```bash
+yarn install
+```
+
+### 3. Run Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open browser [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 4. Build for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm run start
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 📊 Data
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The project uses CSV datasets and image assets sourced from the Google Drive link provided in the PU Dev Challenge instructions:  
+[Google Drive Assets](https://drive.google.com/drive/folders/1Qul5E0LyLB88nh94UMx9t5R67mwcP8e4)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## ✨ Feature
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Responsive Layout (Mobile / Tablet / Desktop)
+- Scroll-triggered Animation (Framer Motion)
+- Scroll Progress Bar
+- Interactive Scroll Button
+- Bar Chart get data from CSV and animate when scroll
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 🙋 ผู้พัฒนา
+
+**Phatchara S.**
+
+- Email: boompetbank@gmail.com
+- GitHub: [@cktalala](https://github.com/cktalala/)
+- Deploy: [Live Demo (Vercel)](http://pu-dev-challenge.vercel.app/)
+
+---
