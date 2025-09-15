@@ -59,7 +59,20 @@ export default function CasesBarChart() {
         >
           <XAxis dataKey="year" />
           <YAxis />
-          <Tooltip />
+          <Tooltip
+              contentStyle={{
+                  backgroundColor: "white", 
+                  border: "1px solid #ccc", 
+                  borderRadius: "6px",
+                  color: "black",
+                  }}
+              itemStyle={{
+                  color: "black", 
+                  }}
+              labelStyle={{
+                  color: "black",
+                  }}
+          />
           <Bar
             dataKey="cases"
             fill="#000000"
