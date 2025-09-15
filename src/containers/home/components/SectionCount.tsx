@@ -6,7 +6,7 @@ const SectionCount = () => {
     <section
       id="count"
       data-section
-      className="font-sans flex items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 "
+      className="font-sans flex items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 bg-white"
     >
       <div className="flex flex-col  justify-center max-w-[720px] mx-auto  gap-8">
         <h1 className="typo-h1 text-black font-noto-sans-thai">
